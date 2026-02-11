@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium heavy-duty engineered products. Industrial excellence meets innovation. Explore our range of construction, manufacturing, and industrial solutions.">
+    <meta property="og:title" content="TitanForge Industries - Heavy-Duty Engineered Solutions">
+    <meta property="og:description" content="World-class engineered products for construction, manufacturing, and industrial applications.">
+    <meta property="og:type" content="website">
+    <title>TitanForge Industries - Heavy-Duty Engineered Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B35',
+                        secondary: '#004E89',
+                        dark: '#1A1A1A',
+                        light: '#F5F5F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #ffffff;
+            color: #1A1A1A;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #FF6B35 0%, #004E89 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF6B35;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .stat-counter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            border-color: #FF6B35;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 2.5rem;
+            }
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #FF6B35, #004E89);
+            z-index: 9999;
+            animation: loading 2s ease-in-out;
+        }
+
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 107, 53, 0.1);
+            color: #FF6B35;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
+            border-radius: 16px;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-left: 4px solid #FF6B35;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <svg class="w-10 h-10" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="5" width="40" height="40" rx="8" fill="url(#logo-gradient)"/>
+                        <path d="M15 20h20M25 15v20M18 28l7 7 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="5" y1="5" x2="45" y2="45">
+                                <stop offset="0%" stop-color="#FF6B35"/>
+                                <stop offset="100%" stop-color="#004E89"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div>
+                        <h1 class="text-xl font-display font-bold text-dark">TitanForge</h1>
+                        <p class="text-xs text-gray-600">Industries</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#products" class="nav-link text-dark hover:text-primary font-medium">Products</a>
+                    <a href="#applications" class="nav-link text-dark hover:text-primary font-medium">Applications</a>
+                    <a href="#about" class="nav-link text-dark hover:text-primary font-medium">About</a>
+                    <a href="#resources" class="nav-link text-dark hover:text-primary font-medium">Resources</a>
+                    <a href="#contact" class="nav-link text-dark hover:text-primary font-medium">Contact</a>
+                    <a href="#dealers" class="btn-primary px-6 py-2.5 rounded-lg text-white font-semibold text-sm">Find a Dealer</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-dark p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-full h-full bg-white z-50 lg:hidden">
+            <div class="flex flex-col h-full">
+                <div class="flex justify-between items-center p-6 border-b">
+                    <h2 class="text-xl font-display font-bold">Menu</h2>
+                    <button id="mobile-menu-close" class="p-2" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="flex flex-col p-6 space-y-4">
+                    <a href="#products" class="text-lg font-medium text-dark hover:text-primary py-3 border-b">Products</a>
+                    <a href="#applications" class="text-lg font-medium text-dark hover:text-primary py-3 border-b">Applications</a>
+                    <a href="#about" class="text-lg font-medium text-dark hover:text-primary py-3 border-b">About</a>
+                    <a href="#resources" class="text-lg font-medium text-dark hover:text-primary py-3 border-b">Resources</a>
+                    <a href="#contact" class="text-lg font-medium text-dark hover:text-primary py-3 border-b">Contact</a>
+                    <a href="#dealers" class="btn-primary px-6 py-3 rounded-lg text-white font-semibold text-center mt-4">Find a Dealer</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+  <!--   <section class="hero-gradient pt-32 pb-20 lg:pt-40 lg:pb-32 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full opacity-5">
+            <svg viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="80" stroke="#FF6B35" stroke-width="2"/>
+                <circle cx="100" cy="100" r="60" stroke="#004E89" stroke-width="2"/>
+                <circle cx="100" cy="100" r="40" stroke="#FF6B35" stroke-width="2"/>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <-- Hero Content -->
+                <!-- <div class="animate-fade-in stagger-1">
+                    <span class="badge">ISO 9001:2015 Certified</span>
+                    <h1 class="hero-text text-5xl lg:text-6xl font-display font-bold text-dark mt-6 leading-tight">
+                        Engineering Excellence for 
+                        <span class="text-gradient">Heavy-Duty</span> Applications
+                    </h1>
+                    <p class="text-xl text-gray-700 mt-6 leading-relaxed">
+                        Premium construction, manufacturing, and industrial solutions designed for the most demanding environments. Built to last, engineered to perform.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-10">
+                        <a href="#products" class="btn-primary px-8 py-4 rounded-lg text-white font-semibold text-center">
+                            Explore Products
+                        </a>
+                        <a href="#applications" class="px-8 py-4 rounded-lg border-2 border-dark text-dark font-semibold text-center hover:bg-dark hover:text-white transition-all">
+                            View Applications
+                        </a>
+                    </div> --> -->
+                    <!-- Trust Indicators -->
+                    <!-- <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t">
+                        <div>
+                            <p class="stat-counter text-3xl text-primary">50+</p>
+                            <p class="text-sm text-gray-600 mt-1">Years Experience</p>
+                        </div>
+                        <div>
+                            <p class="stat-counter text-3xl text-primary">10K+</p>
+                            <p class="text-sm text-gray-600 mt-1">Projects Completed</p>
+                        </div>
+                        <div>
+                            <p class="stat-counter text-3xl text-primary">98%</p>
+                            <p class="text-sm text-gray-600 mt-1">Client Satisfaction</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Hero Image -->
+                <!-- <div class="animate-fade-in stagger-2 floating">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&h=600&fit=crop" 
+                         alt="Heavy-duty industrial equipment in modern manufacturing facility" 
+                         class="rounded-2xl shadow-2xl w-full object-cover"
+                         loading="eager">
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <--start-->
+
+        <section style="
+    padding-top:140px;
+    padding-bottom:100px;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#f7f9fc,#eef2f7);
+">
+
+    <div style="max-width:1400px; margin:auto; padding:0 24px;">
+        <div style="
+            display:flex;
+            align-items:center;
+            gap:60px;
+        ">
+
+            <!-- Hero Content -->
+            <div style="width:55%;">
+                <span style="
+                    background:#004E89;
+                    color:white;
+                    padding:6px 14px;
+                    border-radius:20px;
+                    font-size:13px;
+                ">
+                    ISO 9001:2015 Certified
+                </span>
+
+                <h1 style="
+                    font-size:56px;
+                    font-weight:800;
+                    margin-top:24px;
+                    line-height:1.1;
+                    color:#111;
+                ">
+                    Engineering Excellence for  
+                    <span style="color:#FF6B35;">Heavy-Duty</span> Applications
+                </h1>
+
+                <p style="
+                    font-size:20px;
+                    color:#555;
+                    margin-top:20px;
+                    max-width:620px;
+                ">
+                    Premium construction, manufacturing, and industrial solutions designed for the most demanding environments. Built to last, engineered to perform.
+                </p>
+
+                <div style="
+                    display:flex;
+                    gap:16px;
+                    margin-top:40px;
+                ">
+                    <a href="#products" style="
+                        background:#FF6B35;
+                        color:white;
+                        padding:14px 32px;
+                        border-radius:10px;
+                        font-weight:600;
+                        text-decoration:none;
+                    ">
+                        Explore Products
+                    </a>
+
+                    <a href="#applications" style="
+                        border:2px solid #111;
+                        color:#111;
+                        padding:14px 32px;
+                        border-radius:10px;
+                        font-weight:600;
+                        text-decoration:none;
+                    ">
+                        View Applications
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div style="
+                    display:grid;
+                    grid-template-columns:repeat(3,1fr);
+                    gap:24px;
+                    margin-top:50px;
+                    padding-top:40px;
+                    border-top:1px solid #ddd;
+                ">
+                    <div>
+                        <div style="font-size:32px; color:#004E89; font-weight:700;">50+</div>
+                        <div style="font-size:14px; color:#666;">Years Experience</div>
+                    </div>
+                    <div>
+                        <div style="font-size:32px; color:#004E89; font-weight:700;">10+</div>
+                        <div style="font-size:14px; color:#666;">Projects Completed</div>
+                    </div>
+                    <div>
+                        <div style="font-size:32px; color:#004E89; font-weight:700;">98%</div>
+                        <div style="font-size:14px; color:#666;">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image (Always Right) -->
+            <div style="width:45%;">
+                <img 
+                    src="https://www.magna.com/images/default-source/stories/inside-automotive---sty/cc10/ui_ux_header_article_christiankrug_202601.tmb-widescreen.webp?sfvrsn=b56d4308_1?w=900"
+                    alt="Heavy-duty industrial equipment in modern manufacturing facility"
+                    style="
+                        width:100%;
+                        height:550px;
+                        object-fit:cover;
+                        border-radius:24px;
+                        box-shadow:0 30px 80px rgba(0,0,0,0.25);
+                    "
+                >
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <--END-->
+
+    <!-- Value Proposition -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-4xl lg:text-5xl text-dark mb-4">Why Choose TitanForge</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Engineered for performance, built for reliability, trusted by industry leaders worldwide.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card-hover p-8 rounded-2xl bg-gray-50">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-dark mb-3">Unmatched Durability</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Engineered with premium materials and rigorous testing to withstand the harshest conditions. Our products deliver decades of reliable performance.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card-hover p-8 rounded-2xl bg-gray-50">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-dark mb-3">Peak Performance</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Optimized engineering ensures maximum efficiency and output. Our solutions consistently exceed industry standards and customer expectations.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card-hover p-8 rounded-2xl bg-gray-50">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-display font-bold text-dark mb-3">Lifetime Support</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Comprehensive technical support, maintenance programs, and genuine parts availability. We're with you for the entire product lifecycle.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="badge">Our Products</span>
+                <h2 class="section-title text-4xl lg:text-5xl text-dark mt-4 mb-4">Engineered Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore our comprehensive range of heavy-duty equipment designed for industrial excellence.</p>
+            </div>
+
+            <!-- Product Categories -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop" 
+                             alt="Industrial hydraulic press systems" 
+                             >
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-dark">Construction</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-dark mb-2">Hydraulic Systems</h3>
+                        <p class="text-gray-600 mb-4">Advanced hydraulic press and lift systems for heavy-duty construction and manufacturing applications.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary font-semibold hover:underline flex items-center">
+                                Learn More 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://img.directindustry.com/images_di/photo-g/17969-16190686.webp?w=600&h=400&fit=crop" 
+                             alt="Industrial conveyor belt systems" class="w-full h-full object-cover "
+                             >
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-dark">Manufacturing</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-dark mb-2">Conveyor Systems</h3>
+                        <p class="text-gray-600 mb-4">High-capacity material handling and automated conveyor systems for optimized production workflows.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary font-semibold hover:underline flex items-center">
+                                Learn More 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-64">
+                        <img style="width:383px; height: 256px;" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&h=400&fit=crop" 
+                             alt="Industrial precision machining equipment" 
+                             
+                             >
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-dark">Precision</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-dark mb-2">CNC Machinery</h3>
+                        <p class="text-gray-600 mb-4">State-of-the-art computer numerical control systems for precision manufacturing and fabrication.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary font-semibold hover:underline flex items-center">
+                                Learn More 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://www.shutterstock.com/image-photo/using-charge-station-solar-panel-260nw-2290391689.jpg?w=600&h=400&fit=crop" 
+                             alt="Heavy-duty power generation equipment" 
+                             class="w-full h-full object-cover "
+                            >
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-dark">Energy</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-dark mb-2">Power Generation</h3>
+                        <p class="text-gray-600 mb-4">Industrial-grade generators and power systems for uninterrupted operations and backup power needs.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary font-semibold hover:underline flex items-center">
+                                Learn More 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://noorhantrdg.com/wp-content/uploads/2023/06/car-air-conditioner-check-service-leak-detection-fill-refrigerantdevice-meter-liquid-cooling-2-1.jpg?w=600&h=400&fit=crop" 
+                             alt="Industrial air compressor systems" 
+                             class="w-full h-full object-cover  ">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-dark">Pneumatics</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-dark mb-2">Compressor Systems</h3>
+                        <p class="text-gray-600 mb-4">Heavy-duty air compressors and pneumatic systems engineered for continuous industrial operation.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary font-semibold hover:underline flex items-center">
+                                Learn More 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card rounded-2xl overflow-hidden group">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&h=400&fit=crop" 
+                             alt="Industrial welding and fabrication equipment" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                             loading="lazy">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white px-3 py-1 rounded-full text-xs font-semibold text-dark">Fabrication</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-display font-bold text-dark mb-2">Welding Equipment</h3>
+                        <p class="text-gray-600 mb-4">Professional welding and metal fabrication systems for structural and precision metalwork applications.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary font-semibold hover:underline flex items-center">
+                                Learn More 
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-primary font-semibold text-lg hover:underline">
+                    View All Products 
+                    <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications / Use Cases -->
+    <section id="applications" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="badge">Applications</span>
+                <h2 class="section-title text-4xl lg:text-5xl text-dark mt-4 mb-4">Industry Solutions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Trusted across industries for mission-critical operations and demanding environments.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="slide-in-left">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&h=500&fit=crop" 
+                         alt="Heavy construction site with industrial equipment" 
+                         >
+                </div>
+                <div class="slide-in-right">
+                    <h3 class="text-3xl font-display font-bold text-dark mb-4">Construction & Infrastructure</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        From skyscrapers to highways, our heavy-duty equipment powers the world's most ambitious construction projects. Built to withstand extreme conditions and deliver consistent performance.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">High-rise building construction</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Bridge and tunnel engineering</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Road and highway development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Dam and water management projects</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold text-lg mt-6 hover:underline">
+                        View Case Studies 
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="slide-in-right lg:order-2">
+                    <img src="https://img.directindustry.com/images_di/photo-g/17969-16190686.webp?w=700&h=500&fit=crop" 
+                         alt="Modern automotive manufacturing assembly line" 
+                         >
+                </div>
+                <div class="slide-in-left lg:order-1">
+                    <h3 class="text-3xl font-display font-bold text-dark mb-4">Manufacturing & Production</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Optimize your production lines with precision-engineered systems designed for maximum efficiency, minimal downtime, and consistent quality output across all manufacturing sectors.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Automotive assembly operations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Metal fabrication and processing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Food and beverage production</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Pharmaceutical manufacturing</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold text-lg mt-6 hover:underline">
+                        View Case Studies 
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="slide-in-left">
+                    <img src="https://www.prevor.com/app/uploads/sites/3/2020/08/mining.jpg?w=700&h=500&fit=crop" 
+                         alt="Mining and extraction equipment in operation" 
+                         >
+                </div>
+                <div class="slide-in-right">
+                    <h3 class="text-3xl font-display font-bold text-dark mb-4">Mining & Extraction</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Engineered for the toughest environments on Earth. Our mining equipment delivers reliability, safety, and efficiency in the most challenging extraction operations worldwide.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Open-pit and underground mining</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Quarrying and aggregates production</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Oil and gas extraction</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Mineral processing and refining</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="inline-flex items-center text-primary font-semibold text-lg mt-6 hover:underline">
+                        View Case Studies 
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="badge">About TitanForge</span>
+                <h2 class="section-title text-4xl lg:text-5xl text-dark mt-4 mb-4">Built on Excellence</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Five decades of engineering innovation, quality craftsmanship, and unwavering commitment to customer success.</p>
+            </div>
+
+            <!-- Company Story -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                    <h3 class="text-3xl font-display font-bold text-dark mb-6">Our Story</h3>
+                    <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+                        Founded in 1973, TitanForge Industries began as a small fabrication shop with a bold vision: to engineer the most reliable heavy-duty equipment in the world.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+                        Today, we're a global leader in industrial solutions, serving customers across six continents with innovative products that set industry standards for quality, performance, and durability.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Our commitment to engineering excellence, continuous innovation, and customer partnership has made us the trusted choice for the world's most demanding projects.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://i.postimg.cc/BvnTNN7w/hero-machine-um6Ax-KVY.jpg?w=700&h=500&fit=crop" 
+                         alt="TitanForge manufacturing facility and team" 
+                         class="rounded-2xl shadow-xl"
+                         >
+                </div>
+            </div>
+
+            <!-- Certifications & Standards -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+                <h3 class="text-3xl font-display font-bold text-dark mb-8 text-center">Quality Certifications</h3>
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-dark mb-2">ISO 9001:2015</h4>
+                        <p class="text-sm text-gray-600">Quality Management</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-dark mb-2">ISO 14001</h4>
+                        <p class="text-sm text-gray-600">Environmental Management</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-dark mb-2">OHSAS 18001</h4>
+                        <p class="text-sm text-gray-600">Occupational Health & Safety</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-dark mb-2">CE Marking</h4>
+                        <p class="text-sm text-gray-600">European Conformity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="badge">Testimonials</span>
+                <h2 class="section-title text-4xl lg:text-5xl text-dark mt-4 mb-4">Trusted by Industry Leaders</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Hear from customers who rely on TitanForge for their most critical operations.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-2xl">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "TitanForge equipment has been instrumental in completing our most challenging projects. The reliability and performance are unmatched in the industry."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg">
+                            JD
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark">John Davidson</h4>
+                            <p class="text-sm text-gray-600">Operations Director, BuildCorp International</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-2xl">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "We've reduced downtime by 40% since switching to TitanForge. Their support team is exceptional, and the product quality speaks for itself."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg">
+                            MC
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark">Maria Chen</h4>
+                            <p class="text-sm text-gray-600">Plant Manager, AutoTech Manufacturing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-2xl">
+                    <div class="flex mb-4">
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                        </svg>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "The engineering precision and build quality are outstanding. TitanForge has become our exclusive partner for all heavy equipment needs."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg">
+                            RP
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-dark">Robert Patterson</h4>
+                            <p class="text-sm text-gray-600">CEO, Global Mining Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="badge">Resources</span>
+                <h2 class="section-title text-4xl lg:text-5xl text-dark mt-4 mb-4">Technical Resources</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Access comprehensive documentation, specifications, and training materials.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Resource 1 -->
+                <a href="#" class="card-hover bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">Product Manuals</h3>
+                    <p class="text-gray-600 text-sm mb-4">Comprehensive operation and maintenance guides</p>
+                    <span class="text-primary text-sm font-semibold">Download PDFs →</span>
+                </a>
+
+                <!-- Resource 2 -->
+                <a href="#" class="card-hover bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">Technical Specs</h3>
+                    <p class="text-gray-600 text-sm mb-4">Detailed specifications and performance data</p>
+                    <span class="text-primary text-sm font-semibold">View Specs →</span>
+                </a>
+
+                <!-- Resource 3 -->
+                <a href="#" class="card-hover bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">Video Tutorials</h3>
+                    <p class="text-gray-600 text-sm mb-4">Step-by-step training and operation videos</p>
+                    <span class="text-primary text-sm font-semibold">Watch Now →</span>
+                </a>
+
+                <!-- Resource 4 -->
+                <a href="#" class="card-hover bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark mb-2">Whitepapers</h3>
+                    <p class="text-gray-600 text-sm mb-4">In-depth technical research and case studies</p>
+                    <span class="text-primary text-sm font-semibold">Read More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary to-secondary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grid)" />
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-4xl lg:text-5xl font-display font-bold text-white mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-white/90 mb-10">Connect with a TitanForge dealer to discuss your project requirements and find the perfect solution.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#dealers" class="px-8 py-4 bg-white text-primary rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all hover:shadow-xl">
+                    Find a Dealer
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold text-lg hover:bg-white hover:text-primary transition-all">
+                    Request a Quote
+                </a>
+            </div>
+        </div>
+    </section>
+    <!--Find Dealer/CTA-->
+    <section class="py-24 relative overflow-hidden bg-gray-100">
+    <div class="absolute inset-0 bg-titan-blue transform -skew-y-3 origin-top-left"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-slate-900 rounded-2xl shadow-2xl p-12 grid md:grid-cols-2 gap-8 items-center">
+            
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-4">FIND YOUR DEALER</h2>
+                <p class="text-slate-300 mb-6">
+                    Connect with certified partners for sales, service, and genuine Titan components.
+                </p>
+
+                <form class="flex gap-2">
+                    <input type="text" placeholder="City or ZIP"
+                        class="bg-white/10 text-white px-4 py-3 rounded w-full outline-none">
+                    <button class="bg-titan-accent text-white px-6 py-3 rounded font-bold">
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <div class="relative h-64 rounded-xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1502920514313-52581002a659"
+                    class="absolute inset-0 w-full h-full object-cover opacity-70" alt="Dealer Map">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <!--ENd -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <span class="badge">Get in Touch</span>
+                    <h2 class="section-title text-4xl lg:text-5xl text-dark mt-4 mb-6">Contact Our Team</h2>
+                    <p class="text-lg text-gray-600 mb-8">Have questions about our products or need technical support? Our team of experts is here to help.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-dark mb-1">Phone</h3>
+                                <p class="text-gray-600">+1 (800) 123-4567</p>
+                                <p class="text-sm text-gray-500">Mon-Fri, 8AM-6PM EST</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-dark mb-1">Email</h3>
+                                <p class="text-gray-600">sales@titanforge.com</p>
+                                <p class="text-sm text-gray-500">support@titanforge.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-bold text-dark mb-1">Headquarters</h3>
+                                <p class="text-gray-600">4567 Industrial Parkway</p>
+                                <p class="text-gray-600">Detroit, MI 48201, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-dark mb-2">First Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-dark mb-2">Last Name</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="john.doe@company.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2">Company</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Your Company Name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2">Phone</label>
+                            <input type="tel" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-dark mb-2">How can we help?</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full px-8 py-4 rounded-lg text-white font-semibold text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <svg class="w-10 h-10" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="40" height="40" rx="8" fill="url(#logo-gradient-footer)"/>
+                            <path d="M15 20h20M25 15v20M18 28l7 7 7-7" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <defs>
+                                <linearGradient id="logo-gradient-footer" x1="5" y1="5" x2="45" y2="45">
+                                    <stop offset="0%" stop-color="#FF6B35"/>
+                                    <stop offset="100%" stop-color="#004E89"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div>
+                            <h3 class="text-xl font-display font-bold">TitanForge</h3>
+                            <p class="text-sm text-gray-400">Industries</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4 leading-relaxed">
+                        Engineering excellence in heavy-duty industrial solutions. Trusted by industry leaders worldwide for over 50 years.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Hydraulic Systems</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Conveyor Systems</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">CNC Machinery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Power Generation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">View All Products</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Product Manuals</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Technical Specs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Video Tutorials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Support Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Find a Dealer</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="border-t border-white/10 pt-8 mb-8">
+                <div class="max-w-md">
+                    <h4 class="font-bold text-lg mb-2">Stay Updated</h4>
+                    <p class="text-gray-400 mb-4">Get the latest product updates and industry insights.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                        <button type="submit" class="btn-primary px-6 py-2 rounded-lg text-white font-semibold whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2026 TitanForge Industries. All rights reserved Developed By Zannatul..
+                </p>
+                <div class="flex gap-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full shadow-lg flex items-center justify-center text-white opacity-0 pointer-events-none transition-all hover:bg-secondary">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.pointerEvents = 'auto';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.pointerEvents = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for fade-in animation
+        document.querySelectorAll('.card-hover, .product-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Stat Counter Animation
+        const statCounters = document.querySelectorAll('.stat-counter');
+        
+        const animateCounter = (element) => {
+            const target = element.textContent;
+            const isPercent = target.includes('%');
+            const isPlus = target.includes('+');
+            const numericValue = parseInt(target.replace(/\D/g, ''));
+            const duration = 2000;
+            const increment = numericValue / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= numericValue) {
+                    current = numericValue;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + (isPlus ? '+' : '') + (isPercent ? '%' : '');
+            }, 16);
+        };
+
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statCounters.forEach(counter => {
+            statObserver.observe(counter);
+        });
+
+        // Header Shadow on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Form Validation
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simple validation
+                const inputs = contactForm.querySelectorAll('input, textarea');
+                let isValid = true;
+                
+                inputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        isValid = false;
+                        input.style.borderColor = '#FF6B35';
+                    } else {
+                        input.style.borderColor = '#d1d5db';
+                    }
+                });
+
+                if (isValid) {
+                    alert('Thank you for your message! We will get back to you soon.');
+                    contactForm.reset();
+                }
+            });
+        }
+
+        // Lazy Loading for Images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.style.opacity = '0';
+                        img.style.transition = 'opacity 0.5s ease';
+                        
+                        img.onload = () => {
+                            img.style.opacity = '1';
+                        };
+                        
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add active state to navigation on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-primary');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
