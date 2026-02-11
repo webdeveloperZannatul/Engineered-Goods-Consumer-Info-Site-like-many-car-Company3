@@ -1,0 +1,2 @@
+# Engineered-Goods-Consumer-Info-Site-like-many-car-Company3
+I specialize in designing and developing high-performance  websites for engineered and industrial products.I work with modern stacks including HTML, PHP, Webflow, and WordPress, ensuring clients can easily manage content without relying on developers. Every project is optimized for performance, accessibility (WCAG 2.1), and Google Core Web Vitals.
